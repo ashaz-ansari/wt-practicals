@@ -6,15 +6,12 @@
 </head>
 <body>
 <h1>Practical 3: Document Object</h1>
-<pre id="output"></pre>
 <script>
-var output = document.getElementById("output");
-output.textContent =
-  "Title: " + document.title + "\n" +
-  "URL: " + document.URL + "\n" +
-  "Domain: " + document.domain + "\n" +
-  "Last modified: " + document.lastModified + "\n" +
-  "Heading: " + document.getElementsByTagName("h1")[0].textContent;
+document.write("Title: " + document.title + "<br>");
+document.write("URL: " + document.URL + "<br>");
+document.write("Domain: " + document.domain + "<br>");
+document.write("Last modified: " + document.lastModified + "<br>");
+document.write("Heading: " + document.getElementsByTagName("h1")[0].textContent);
 </script>
 </body>
 </html>

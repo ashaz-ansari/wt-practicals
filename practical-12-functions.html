@@ -6,19 +6,17 @@
 </head>
 <body>
 <h1>Practical 12: Functions</h1>
-<pre id="output"></pre>
 <script>
 function add(a, b) { return a + b; }
 var multiply = function (a, b) { return a * b; };
 var divide = (a, b) => a / b;
 function greet(name = "Guest") { return "Hello, " + name + "!"; }
 function factorial(n) { return n <= 1 ? 1 : n * factorial(n - 1); }
-document.getElementById("output").textContent =
-  "add: " + add(12, 8) + "\n" +
-  "multiply: " + multiply(6, 7) + "\n" +
-  "divide: " + divide(20, 4) + "\n" +
-  "greet: " + greet() + "\n" +
-  "factorial: " + factorial(5);
+document.write("add: " + add(12, 8) + "<br>");
+document.write("multiply: " + multiply(6, 7) + "<br>");
+document.write("divide: " + divide(20, 4) + "<br>");
+document.write("greet: " + greet() + "<br>");
+document.write("factorial: " + factorial(5));
 </script>
 </body>
 </html>

@@ -6,7 +6,6 @@
 </head>
 <body>
 <h1>Practical 14: Objects and Classes</h1>
-<pre id="output"></pre>
 <script>
 var student = {
   name: "Aarav",
@@ -32,10 +31,9 @@ class Student extends Person {
     return super.introduce() + " and I study " + this.course;
   }
 }
-document.getElementById("output").textContent =
-  student.display() + "\n" +
-  new Person("Meera").introduce() + "\n" +
-  new Student("Aarav", "Web Technology").introduce();
+document.write(student.display() + "<br>");
+document.write(new Person("Meera").introduce() + "<br>");
+document.write(new Student("Aarav", "Web Technology").introduce());
 </script>
 </body>
 </html>

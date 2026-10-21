@@ -6,18 +6,17 @@
 </head>
 <body>
 <h1>Practical 7: Fibonacci Numbers</h1>
-<pre id="output"></pre>
 <script>
 var first = 0;
 var second = 1;
-var numbers = [];
+var text = "";
 for (var i = 0; i < 10; i++) {
-  numbers.push(first);
+  text += (i ? ", " : "") + first;
   var next = first + second;
   first = second;
   second = next;
 }
-document.getElementById("output").textContent = numbers.join(", ");
+document.write(text);
 </script>
 </body>
 </html>

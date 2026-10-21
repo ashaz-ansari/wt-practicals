@@ -6,17 +6,14 @@
 </head>
 <body>
 <h1>Practical 10: Looping Statements</h1>
-<pre id="output"></pre>
 <script>
-var lines = [];
-for (var i = 1; i <= 3; i++) lines.push("for: " + i);
+for (var i = 1; i <= 3; i++) document.write("for: " + i + "<br>");
 var j = 1;
-while (j <= 3) lines.push("while: " + j++);
+while (j <= 3) document.write("while: " + j++ + "<br>");
 var k = 1;
-do { lines.push("do...while: " + k++); } while (k <= 3);
-for (var fruit of ["Mango", "Apple"]) lines.push("for...of: " + fruit);
-for (var key in { name: "Aarav", course: "Web Technology" }) lines.push("for...in: " + key);
-document.getElementById("output").textContent = lines.join("\n");
+do { document.write("do...while: " + k++ + "<br>"); } while (k <= 3);
+for (var fruit of ["Mango", "Apple"]) document.write("for...of: " + fruit + "<br>");
+for (var key in { name: "Aarav", course: "Web Technology" }) document.write("for...in: " + key + "<br>");
 </script>
 </body>
 </html>

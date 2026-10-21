@@ -6,11 +6,10 @@
 </head>
 <body>
 <h1>Practical 5: Day of the Week</h1>
-<p id="output"></p>
 <script>
 var input = prompt("Enter a date (YYYY-MM-DD)");
 var date = new Date(input);
-document.getElementById("output").textContent = input ? "Day: " + date.toLocaleDateString("en-US", { weekday: "long" }) : "No date entered.";
+document.write(input ? "Day: " + date.toLocaleDateString("en-US", { weekday: "long" }) : "No date entered.");
 </script>
 </body>
 </html>

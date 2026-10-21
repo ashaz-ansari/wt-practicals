@@ -6,19 +6,17 @@
 </head>
 <body>
 <h1>Practical 16: Browser Object Model</h1>
-<pre id="output"></pre>
-<button onclick="showConfirm()">Show Confirm</button>
-<p id="message"></p>
 <script>
-document.getElementById("output").textContent =
-  "Window size: " + window.innerWidth + " x " + window.innerHeight + "\n" +
-  "Screen size: " + screen.width + " x " + screen.height + "\n" +
-  "Language: " + navigator.language + "\n" +
-  "Online: " + navigator.onLine + "\n" +
-  "URL: " + location.href;
+document.write("Window size: " + window.innerWidth + " x " + window.innerHeight + "<br>");
+document.write("Screen size: " + screen.width + " x " + screen.height + "<br>");
+document.write("Language: " + navigator.language + "<br>");
+document.write("Online: " + navigator.onLine + "<br>");
+document.write("URL: " + location.href);
 function showConfirm() {
   document.getElementById("message").textContent = confirm("Click OK or Cancel") ? "You clicked OK." : "You clicked Cancel.";
 }
 </script>
+<button onclick="showConfirm()">Show Confirm</button>
+<p id="message"></p>
 </body>
 </html>

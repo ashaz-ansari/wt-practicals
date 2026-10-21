@@ -6,14 +6,11 @@
 </head>
 <body>
 <h1>Practical 6: Table of Numbers</h1>
-<pre id="output"></pre>
 <script>
 var number = Number(prompt("Enter a number"));
-var lines = [];
 for (var i = 1; i <= 10; i++) {
-  lines.push(number + " x " + i + " = " + (number * i));
+  document.write(number + " x " + i + " = " + (number * i) + "<br>");
 }
-document.getElementById("output").textContent = lines.join("\n");
 </script>
 </body>
 </html>

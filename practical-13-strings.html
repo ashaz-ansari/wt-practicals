@@ -6,18 +6,16 @@
 </head>
 <body>
 <h1>Practical 13: Strings</h1>
-<pre id="output"></pre>
 <script>
 var text = "  JavaScript makes web pages interactive.  ";
-document.getElementById("output").textContent =
-  "Original: " + text + "\n" +
-  "length: " + text.length + "\n" +
-  "trim: " + text.trim() + "\n" +
-  "toUpperCase: " + text.toUpperCase() + "\n" +
-  "includes web: " + text.includes("web") + "\n" +
-  "slice: " + text.slice(2, 12) + "\n" +
-  "replace: " + text.replace("interactive", "dynamic") + "\n" +
-  "split: " + text.trim().split(" ").join(" | ");
+document.write("Original: " + text + "<br>");
+document.write("length: " + text.length + "<br>");
+document.write("trim: " + text.trim() + "<br>");
+document.write("toUpperCase: " + text.toUpperCase() + "<br>");
+document.write("includes web: " + text.includes("web") + "<br>");
+document.write("slice: " + text.slice(2, 12) + "<br>");
+document.write("replace: " + text.replace("interactive", "dynamic") + "<br>");
+document.write("split: " + text.trim().split(" ").join(" | "));
 </script>
 </body>
 </html>

@@ -16,11 +16,11 @@ function loadBooks() {
   xhr.onload = function () {
     if (xhr.status === 200) {
       var books = xhr.responseXML.getElementsByTagName("book");
-      var lines = [];
+      var text = "";
       for (var i = 0; i < books.length; i++) {
-        lines.push(books[i].getAttribute("id") + " - " + books[i].getElementsByTagName("title")[0].textContent + " - " + books[i].getElementsByTagName("author")[0].textContent + " - " + books[i].getElementsByTagName("price")[0].textContent);
+        text += books[i].getAttribute("id") + " - " + books[i].getElementsByTagName("title")[0].textContent + " - " + books[i].getElementsByTagName("author")[0].textContent + " - " + books[i].getElementsByTagName("price")[0].textContent + "\n";
       }
-      output.textContent = lines.join("\n");
+      output.textContent = text;
     } else {
       output.textContent = "Error: " + xhr.status;
     }

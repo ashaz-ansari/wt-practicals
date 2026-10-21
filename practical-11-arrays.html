@@ -6,21 +6,18 @@
 </head>
 <body>
 <h1>Practical 11: Arrays</h1>
-<pre id="output"></pre>
 <script>
 var fruits = ["Mango", "Apple", "Banana"];
-var lines = [];
-lines.push("Array: " + fruits.join(", "));
+document.write("Array: " + fruits.join(", ") + "<br>");
 fruits.push("Orange");
-lines.push("push: " + fruits.join(", "));
+document.write("push: " + fruits.join(", ") + "<br>");
 fruits.pop();
-lines.push("pop: " + fruits.join(", "));
-lines.push("length: " + fruits.length);
-lines.push("indexOf Apple: " + fruits.indexOf("Apple"));
-lines.push("map: " + fruits.map(item => item.toUpperCase()).join(", "));
-lines.push("filter: " + [12, 5, 8, 20].filter(n => n > 7).join(", "));
-lines.push("reduce: " + [10, 20, 30].reduce((sum, n) => sum + n, 0));
-document.getElementById("output").textContent = lines.join("\n");
+document.write("pop: " + fruits.join(", ") + "<br>");
+document.write("length: " + fruits.length + "<br>");
+document.write("indexOf Apple: " + fruits.indexOf("Apple") + "<br>");
+document.write("map: " + fruits.map(item => item.toUpperCase()).join(", ") + "<br>");
+document.write("filter: " + [12, 5, 8, 20].filter(n => n > 7).join(", ") + "<br>");
+document.write("reduce: " + [10, 20, 30].reduce((sum, n) => sum + n, 0) + "<br>");
 </script>
 </body>
 </html>
