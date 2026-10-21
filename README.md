@@ -30,18 +30,9 @@ Options:
 -h, --help          Show help
 ```
 
-### Publish for world-wide access
+### Online access
 
-Create a public GitHub repository named `wt-practicals` at `https://github.com/new?name=wt-practicals`, then run these commands from this folder:
-
-```
-git init
-git add .
-git commit -m "Add Web Technology practicals and CLI"
-git branch -M main
-git remote add origin https://github.com/ashaz-ansari/wt-practicals.git
-git push -u origin main
-```
+The project is hosted at `https://github.com/ashaz-ansari/wt-practicals`.
 
 After the repository is public, anyone with Node.js and npm can download a practical from any folder:
 
