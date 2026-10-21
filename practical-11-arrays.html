@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Practical 11 - Arrays</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<main>
+<h1>JavaScript Arrays</h1>
+<pre id="output"></pre>
+<p><a href="index.html">Back to index</a></p>
+</main>
+<script>
+var fruits = ["Mango", "Apple", "Banana"];
+var lines = [];
+
+lines.push("Initial array: " + fruits.join(", "));
+lines.push("Array.isArray(fruits): " + Array.isArray(fruits));
+
+fruits.push("Orange");
+lines.push("After push('Orange'): " + fruits.join(", "));
+
+fruits.unshift("Grapes");
+lines.push("After unshift('Grapes'): " + fruits.join(", "));
+
+var removedLast = fruits.pop();
+lines.push("pop() removed: " + removedLast);
+
+var removedFirst = fruits.shift();
+lines.push("shift() removed: " + removedFirst);
+
+lines.push("slice(1, 3): " + fruits.slice(1, 3).join(", "));
+lines.push("indexOf('Banana'): " + fruits.indexOf("Banana"));
+lines.push("includes('Apple'): " + fruits.includes("Apple"));
+lines.push("map() to uppercase: " + fruits.map(function (item) {
+  return item.toUpperCase();
+}).join(", "));
+lines.push("filter() values above 7: " + [12, 5, 8, 20, 3].filter(function (number) {
+  return number > 7;
+}).join(", "));
+lines.push("reduce() sum: " + [10, 20, 30, 40].reduce(function (sum, number) {
+  return sum + number;
+}, 0));
+lines.push("sort() copy: " + fruits.slice().sort().join(", "));
+lines.push("join(' - '): " + fruits.join(" - "));
+
+document.getElementById("output").textContent = lines.join("\n");
+</script>
+</body>
+</html>

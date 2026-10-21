@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Practical 15 - HTML DOM</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<main>
+<h1>HTML DOM Manipulation</h1>
+<div id="box" class="result">Original content</div>
+<input id="textInput" type="text" placeholder="Enter new text">
+<button id="changeButton">Change Content</button>
+<button id="styleButton">Toggle Style</button>
+<button id="addButton">Add List Item</button>
+<button id="removeButton">Remove Last Item</button>
+<ul id="list">
+<li>First item</li>
+<li>Second item</li>
+</ul>
+<p id="info"></p>
+<p><a href="index.html">Back to index</a></p>
+</main>
+<script>
+var box = document.getElementById("box");
+var list = document.getElementById("list");
+var info = document.getElementById("info");
+var input = document.getElementById("textInput");
+
+input.value = box.textContent;
+
+function updateInfo() {
+  var items = document.querySelectorAll("#list li");
+  var firstItem = items[0] ? items[0].textContent : "none";
+  info.textContent = "List items: " + items.length + " | First item: " + firstItem + " | data-status: " + box.getAttribute("data-status");
+}
+
+updateInfo();
+
+document.getElementById("changeButton").addEventListener("click", function () {
+  box.textContent = input.value || "Empty text";
+  box.setAttribute("data-status", "updated");
+  updateInfo();
+});
+
+document.getElementById("styleButton").addEventListener("click", function () {
+  box.classList.toggle("highlight");
+  box.style.fontWeight = box.style.fontWeight === "bold" ? "normal" : "bold";
+});
+
+document.getElementById("addButton").addEventListener("click", function () {
+  var item = document.createElement("li");
+  item.textContent = "Item " + (list.children.length + 1);
+  list.appendChild(item);
+  updateInfo();
+});
+
+document.getElementById("removeButton").addEventListener("click", function () {
+  if (list.lastElementChild) {
+    list.removeChild(list.lastElementChild);
+  }
+  updateInfo();
+});
+</script>
+</body>
+</html>

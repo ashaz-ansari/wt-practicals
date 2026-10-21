@@ -1,0 +1,15 @@
+{
+  "name": "mongodb-practical",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "native": "node native.js",
+    "mongoose": "node mongoose.js",
+    "api": "node crud-api.js"
+  },
+  "dependencies": {
+    "express": "^4.21.2",
+    "mongodb": "^6.10.0",
+    "mongoose": "^8.8.0"
+  }
+}

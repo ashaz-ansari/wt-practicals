@@ -1,0 +1,175 @@
+{
+  "1": {
+    "title": "document.write()",
+    "paths": ["practical-01-document-write.html", "style.css"],
+    "hint": "Open the downloaded HTML file in a browser."
+  },
+  "2": {
+    "title": "Sum of two numbers using var",
+    "paths": ["practical-02-sum-two-numbers.html", "style.css"],
+    "hint": "Open the downloaded HTML file in a browser."
+  },
+  "3": {
+    "title": "Document object properties and methods",
+    "paths": ["practical-03-document-object.html", "style.css"],
+    "hint": "Open the downloaded HTML file in a browser."
+  },
+  "4": {
+    "title": "Today's date and current time",
+    "paths": ["practical-04-date-time.html", "style.css"],
+    "hint": "Open the downloaded HTML file in a browser."
+  },
+  "5": {
+    "title": "Day of the week from a prompt date",
+    "paths": ["practical-05-day-of-week.html", "style.css"],
+    "hint": "Open the downloaded HTML file in a browser."
+  },
+  "6": {
+    "title": "Multiplication table using a loop",
+    "paths": ["practical-06-table-of-numbers.html", "style.css"],
+    "hint": "Open the downloaded HTML file in a browser."
+  },
+  "7": {
+    "title": "First 10 Fibonacci numbers",
+    "paths": ["practical-07-fibonacci.html", "style.css"],
+    "hint": "Open the downloaded HTML file in a browser."
+  },
+  "8": {
+    "title": "Function definition and Welcome()",
+    "paths": ["practical-08-welcome-function.html", "style.css"],
+    "hint": "Open the downloaded HTML file in a browser."
+  },
+  "9": {
+    "title": "Decision-making statements",
+    "paths": ["practical-09-decision-making.html", "style.css"],
+    "hint": "Open the downloaded HTML file in a browser."
+  },
+  "10": {
+    "title": "Looping statements",
+    "paths": ["practical-10-looping.html", "style.css"],
+    "hint": "Open the downloaded HTML file in a browser."
+  },
+  "11": {
+    "title": "Arrays",
+    "paths": ["practical-11-arrays.html", "style.css"],
+    "hint": "Open the downloaded HTML file in a browser."
+  },
+  "12": {
+    "title": "Functions",
+    "paths": ["practical-12-functions.html", "style.css"],
+    "hint": "Open the downloaded HTML file in a browser."
+  },
+  "13": {
+    "title": "Strings",
+    "paths": ["practical-13-strings.html", "style.css"],
+    "hint": "Open the downloaded HTML file in a browser."
+  },
+  "14": {
+    "title": "Objects, functions, and classes",
+    "paths": ["practical-14-objects-classes.html", "style.css"],
+    "hint": "Open the downloaded HTML file in a browser."
+  },
+  "15": {
+    "title": "HTML DOM",
+    "paths": ["practical-15-dom.html", "style.css"],
+    "hint": "Open the downloaded HTML file in a browser."
+  },
+  "16": {
+    "title": "Browser Object Model",
+    "paths": ["practical-16-bom.html", "style.css"],
+    "hint": "Open the downloaded HTML file in a browser."
+  },
+  "17": {
+    "title": "Web APIs",
+    "paths": ["practical-17-web-apis.html", "style.css"],
+    "hint": "Open the downloaded HTML file in a browser."
+  },
+  "18": {
+    "title": "AJAX with XMLHttpRequest",
+    "paths": ["practical-18-ajax", "style.css", "serve.js"],
+    "hint": "Run node serve.js from the download folder, then open http://localhost:8000/practical-18-ajax/."
+  },
+  "19": {
+    "title": "Simple XML program",
+    "paths": ["practical-19-xml", "style.css", "serve.js"],
+    "hint": "Run node serve.js from the download folder, then open http://localhost:8000/practical-19-xml/."
+  },
+  "20": {
+    "title": "XML AJAX",
+    "paths": ["practical-20-xml-ajax", "style.css", "serve.js"],
+    "hint": "Run node serve.js from the download folder, then open http://localhost:8000/practical-20-xml-ajax/."
+  },
+  "21": {
+    "title": "XML DOM",
+    "paths": ["practical-21-xml-dom", "style.css", "serve.js"],
+    "hint": "Run node serve.js from the download folder, then open http://localhost:8000/practical-21-xml-dom/."
+  },
+  "22": {
+    "title": "XML Web Service",
+    "paths": ["practical-22-xml-web-services", "style.css", "serve.js"],
+    "hint": "Run node serve.js from the download folder, then open http://localhost:8000/practical-22-xml-web-services/."
+  },
+  "23A": {
+    "title": "Node environment, V8, and process object",
+    "paths": ["practical-23-node-environment/environment.js"],
+    "hint": "Run node practical-23-node-environment/environment.js."
+  },
+  "23B": {
+    "title": "Async events, timers, event loop, and callbacks",
+    "paths": ["practical-23-node-environment/async-events.js"],
+    "hint": "Run node practical-23-node-environment/async-events.js."
+  },
+  "24A": {
+    "title": "Streams, HTTP server, requests, headers, and POST data",
+    "paths": [
+      "practical-24-node-streams-fs-express/streams-server.js",
+      "practical-24-node-streams-fs-express/sample-data.txt",
+      "style.css"
+    ],
+    "hint": "Run node practical-24-node-streams-fs-express/streams-server.js, then open http://localhost:3000."
+  },
+  "24B": {
+    "title": "File system operations",
+    "paths": ["practical-24-node-streams-fs-express/file-system.js"],
+    "hint": "Run node practical-24-node-streams-fs-express/file-system.js."
+  },
+  "24C": {
+    "title": "Express routes, static files, middleware, and JSON",
+    "paths": ["practical-24-node-streams-fs-express/express-app"],
+    "hint": "Open a terminal in practical-24-node-streams-fs-express/express-app, run npm install, run npm start, then open http://localhost:3000."
+  },
+  "25A": {
+    "title": "Relational database and SQL",
+    "paths": ["practical-25-databases/sql/schema.sql"],
+    "hint": "Open practical-25-databases/sql/schema.sql in MySQL Workbench or the MySQL command line."
+  },
+  "25B": {
+    "title": "Node.js and MySQL",
+    "paths": ["practical-25-databases/mysql"],
+    "hint": "Open a terminal in practical-25-databases/mysql, run npm install, then run npm start."
+  },
+  "25C": {
+    "title": "NoSQL documents with MongoDB",
+    "paths": [
+      "practical-25-databases/mongodb/native.js",
+      "practical-25-databases/mongodb/package.json"
+    ],
+    "hint": "Open a terminal in practical-25-databases/mongodb, run npm install, then run npm run native."
+  },
+  "25D": {
+    "title": "MongoDB and Mongoose",
+    "paths": [
+      "practical-25-databases/mongodb/mongoose.js",
+      "practical-25-databases/mongodb/package.json"
+    ],
+    "hint": "Open a terminal in practical-25-databases/mongodb, run npm install, then run npm run mongoose."
+  },
+  "25E": {
+    "title": "CRUD operations using MongoDB",
+    "paths": [
+      "practical-25-databases/mongodb/crud-api.js",
+      "practical-25-databases/mongodb/package.json"
+    ],
+    "hint": "Open a terminal in practical-25-databases/mongodb, run npm install, then run npm run api."
+  }
+}

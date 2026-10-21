@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Practical 20 - XML AJAX</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<main>
+<h1>XML AJAX with Live Search</h1>
+<p>Load employee data from XML with AJAX and filter it by name.</p>
+<input id="searchInput" type="text" placeholder="Search by name">
+<button id="loadButton">Load Employees</button>
+<p id="status" class="result">Click the button to load employees.</p>
+<div id="output"></div>
+<p><a href="../index.html">Back to index</a></p>
+</main>
+<script>
+var employees = [];
+var loaded = false;
+
+function renderEmployees(filter) {
+  var output = document.getElementById("output");
+  var status = document.getElementById("status");
+  var filtered = employees.filter(function (employee) {
+    return employee.name.toLowerCase().includes(filter.toLowerCase());
+  });
+  var html = "<table><tr><th>ID</th><th>Name</th><th>Department</th><th>Salary</th></tr>";
+
+  filtered.forEach(function (employee) {
+    html += "<tr><td>" + employee.id + "</td><td>" + employee.name + "</td><td>" + employee.department + "</td><td>" + employee.salary + "</td></tr>";
+  });
+
+  html += "</table>";
+  output.innerHTML = html;
+  status.textContent = "Showing " + filtered.length + " of " + employees.length + " employees.";
+}
+
+document.getElementById("loadButton").addEventListener("click", function () {
+  var xhr = new XMLHttpRequest();
+
+  xhr.open("GET", "employees.xml", true);
+
+  xhr.onreadystatechange = function () {
+    if (xhr.readyState === 4) {
+      if (xhr.status === 200) {
+        var xml = xhr.responseXML;
+        var nodes = xml.getElementsByTagName("employee");
+        employees = [];
+
+        for (var i = 0; i < nodes.length; i++) {
+          employees.push({
+            id: nodes[i].getAttribute("id"),
+            name: nodes[i].getElementsByTagName("name")[0].textContent,
+            department: nodes[i].getElementsByTagName("department")[0].textContent,
+            salary: nodes[i].getElementsByTagName("salary")[0].textContent
+          });
+        }
+
+        loaded = true;
+        renderEmployees("");
+      } else {
+        document.getElementById("status").textContent = "Unable to load employees.xml. Open this page through the local server.";
+      }
+    }
+  };
+
+  xhr.send();
+});
+
+document.getElementById("searchInput").addEventListener("input", function () {
+  if (loaded) {
+    renderEmployees(this.value);
+  }
+});
+</script>
+</body>
+</html>

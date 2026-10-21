@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Practical 22 - XML Web Service</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<main>
+<h1>XML Web Service with SOAP</h1>
+<p>Send a SOAP XML request to the local web service and parse the XML response.</p>
+<input id="cityInput" type="text" value="Pune" placeholder="Enter a city">
+<button id="sendButton">Send SOAP Request</button>
+<p id="status" class="result"></p>
+<h2>SOAP Response</h2>
+<pre id="output"></pre>
+</main>
+<script>
+document.getElementById("sendButton").addEventListener("click", function () {
+  var city = document.getElementById("cityInput").value.trim() || "Pune";
+  var safeCity = city.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+  var status = document.getElementById("status");
+  var output = document.getElementById("output");
+
+  var soapRequest = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>" +
+    "<soap:Envelope xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">" +
+    "<soap:Body>" +
+    "<GetWeather xmlns=\"http://example.com/weather\">" +
+    "<city>" + safeCity + "</city>" +
+    "</GetWeather>" +
+    "</soap:Body>" +
+    "</soap:Envelope>";
+
+  status.textContent = "Sending request...";
+  output.textContent = "";
+
+  fetch("/soap", {
+    method: "POST",
+    headers: {
+      "Content-Type": "text/xml; charset=utf-8"
+    },
+    body: soapRequest
+  }).then(function (response) {
+    if (!response.ok) {
+      throw new Error("HTTP " + response.status);
+    }
+    return response.text();
+  }).then(function (xmlText) {
+    var parser = new DOMParser();
+    var xmlDoc = parser.parseFromString(xmlText, "application/xml");
+    var cityNode = xmlDoc.getElementsByTagName("city")[0];
+    var temperatureNode = xmlDoc.getElementsByTagName("temperature")[0];
+    var unitNode = xmlDoc.getElementsByTagName("unit")[0];
+
+    status.textContent = "Weather in " + cityNode.textContent + ": " + temperatureNode.textContent + " degrees " + unitNode.textContent;
+    output.textContent = xmlText;
+  }).catch(function (error) {
+    status.textContent = "Request failed: " + error.message;
+  });
+});
+</script>
+</body>
+</html>

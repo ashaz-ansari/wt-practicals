@@ -1,0 +1,12 @@
+{
+  "name": "mysql-practical",
+  "version": "1.0.0",
+  "private": true,
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js"
+  },
+  "dependencies": {
+    "mysql2": "^3.11.5"
+  }
+}

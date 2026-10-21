@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Practical 7 - Fibonacci Numbers</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<main>
+<h1>First 10 Fibonacci Numbers</h1>
+<p id="output" class="result"></p>
+<table id="fibonacciTable"></table>
+<p><a href="index.html">Back to index</a></p>
+</main>
+<script>
+var first = 0;
+var second = 1;
+var numbers = [];
+
+for (var i = 0; i < 10; i++) {
+  numbers.push(first);
+  var next = first + second;
+  first = second;
+  second = next;
+}
+
+document.getElementById("output").textContent = numbers.join(", ");
+
+var tableHtml = "<tr><th>Position</th><th>Fibonacci Number</th></tr>";
+numbers.forEach(function (number, index) {
+  tableHtml += "<tr><td>" + (index + 1) + "</td><td>" + number + "</td></tr>";
+});
+document.getElementById("fibonacciTable").innerHTML = tableHtml;
+</script>
+</body>
+</html>

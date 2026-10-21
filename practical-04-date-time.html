@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Practical 4 - Date and Time</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<main>
+<h1>Today's Date and Current Time</h1>
+<p id="datetime" class="result"></p>
+<p id="parts"></p>
+<p><a href="index.html">Back to index</a></p>
+</main>
+<script>
+function updateDateTime() {
+  var now = new Date();
+  var dateText = now.toLocaleDateString("en-IN", {
+    weekday: "long",
+    year: "numeric",
+    month: "long",
+    day: "numeric"
+  });
+  var timeText = now.toLocaleTimeString("en-IN", {
+    hour: "2-digit",
+    minute: "2-digit",
+    second: "2-digit",
+    hour12: true
+  });
+
+  document.getElementById("datetime").textContent = dateText + " | " + timeText;
+  document.getElementById("parts").textContent = "Date: " + now.getDate() + "/" + (now.getMonth() + 1) + "/" + now.getFullYear() + " | Hours: " + now.getHours() + " | Minutes: " + now.getMinutes() + " | Seconds: " + now.getSeconds();
+}
+
+updateDateTime();
+setInterval(updateDateTime, 1000);
+</script>
+</body>
+</html>

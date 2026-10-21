@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Practical 13 - Strings</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<main>
+<h1>JavaScript Strings</h1>
+<pre id="output"></pre>
+<p><a href="index.html">Back to index</a></p>
+</main>
+<script>
+var text = "  JavaScript makes web pages interactive.  ";
+var lines = [];
+
+lines.push("Original: " + JSON.stringify(text));
+lines.push("length: " + text.length);
+lines.push("trim(): " + JSON.stringify(text.trim()));
+lines.push("toUpperCase(): " + text.toUpperCase());
+lines.push("toLowerCase(): " + text.toLowerCase());
+lines.push("includes('web'): " + text.includes("web"));
+lines.push("indexOf('pages'): " + text.indexOf("pages"));
+lines.push("slice(2, 12): " + JSON.stringify(text.slice(2, 12)));
+lines.push("substring(2, 12): " + JSON.stringify(text.substring(2, 12)));
+lines.push("replace('interactive', 'dynamic'): " + text.replace("interactive", "dynamic"));
+lines.push("split(' '): " + text.trim().split(" ").join(" | "));
+lines.push("charAt(2): " + text.charAt(2));
+lines.push("padStart(20, '*'): " + "5".padStart(20, "*"));
+lines.push("repeat(3): " + "Hi ".repeat(3));
+lines.push("Template literal: The text has " + text.trim().length + " characters.");
+
+document.getElementById("output").textContent = lines.join("\n");
+</script>
+</body>
+</html>

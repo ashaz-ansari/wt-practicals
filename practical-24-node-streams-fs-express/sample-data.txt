@@ -1,0 +1,7 @@
+Streaming data from a Node.js server.
+This file is read with fs.createReadStream().
+The readable stream is piped directly to the HTTP response.
+Streams transfer data in chunks instead of loading the whole file into memory.
+Headers such as Content-Type and Content-Disposition are set on the response.
+The request object provides the method, URL, and headers of each client request.
+POST data is collected from the request stream and processed on the end event.

@@ -1,0 +1,11 @@
+{
+  "name": "wt-practicals",
+  "version": "1.0.0",
+  "description": "Download Web Technology practicals by practical number.",
+  "bin": {
+    "wt": "bin/wt.js"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}

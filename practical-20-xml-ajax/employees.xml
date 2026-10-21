@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<employees>
+  <employee id="E1">
+    <name>Aarav</name>
+    <department>Development</department>
+    <salary>55000</salary>
+  </employee>
+  <employee id="E2">
+    <name>Meera</name>
+    <department>Design</department>
+    <salary>48000</salary>
+  </employee>
+  <employee id="E3">
+    <name>Rohan</name>
+    <department>Testing</department>
+    <salary>42000</salary>
+  </employee>
+  <employee id="E4">
+    <name>Sara</name>
+    <department>Development</department>
+    <salary>61000</salary>
+  </employee>
+  <employee id="E5">
+    <name>Kabir</name>
+    <department>Support</department>
+    <salary>39000</salary>
+  </employee>
+</employees>

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Practical 21 - XML DOM</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<main>
+<h1>XML DOM Parsing and Editing</h1>
+<p id="info" class="result"></p>
+<button id="addButton">Add Book</button>
+<button id="renameButton">Rename First Book</button>
+<button id="removeButton">Remove Last Book</button>
+<button id="serializeButton">Serialize XML</button>
+<pre id="output"></pre>
+<p><a href="../index.html">Back to index</a></p>
+</main>
+<script>
+var xmlText = "<library><book id=\"1\"><title>Web Technology</title><author>A. Sharma</author></book><book id=\"2\"><title>JavaScript</title><author>M. Patel</author></book></library>";
+var parser = new DOMParser();
+var serializer = new XMLSerializer();
+var xmlDoc = parser.parseFromString(xmlText, "application/xml");
+
+function updateInfo() {
+  var books = xmlDoc.getElementsByTagName("book");
+  var titles = [];
+
+  for (var i = 0; i < books.length; i++) {
+    var title = books[i].getElementsByTagName("title")[0];
+    titles.push(title ? title.textContent : "Untitled");
+  }
+
+  document.getElementById("info").textContent = "Books: " + books.length + " | Titles: " + titles.join(", ");
+}
+
+function showXml() {
+  document.getElementById("output").textContent = serializer.serializeToString(xmlDoc);
+  updateInfo();
+}
+
+document.getElementById("addButton").addEventListener("click", function () {
+  var books = xmlDoc.getElementsByTagName("book");
+  var book = xmlDoc.createElement("book");
+  book.setAttribute("id", String(books.length + 1));
+
+  var title = xmlDoc.createElement("title");
+  title.textContent = "New Book " + (books.length + 1);
+
+  var author = xmlDoc.createElement("author");
+  author.textContent = "New Author";
+
+  book.appendChild(title);
+  book.appendChild(author);
+  xmlDoc.documentElement.appendChild(book);
+  showXml();
+});
+
+document.getElementById("renameButton").addEventListener("click", function () {
+  var firstTitle = xmlDoc.getElementsByTagName("title")[0];
+
+  if (firstTitle) {
+    firstTitle.textContent = "Updated Web Technology";
+  }
+
+  showXml();
+});
+
+document.getElementById("removeButton").addEventListener("click", function () {
+  var books = xmlDoc.getElementsByTagName("book");
+
+  if (books.length > 0) {
+    var lastBook = books[books.length - 1];
+    lastBook.parentNode.removeChild(lastBook);
+  }
+
+  showXml();
+});
+
+document.getElementById("serializeButton").addEventListener("click", showXml);
+showXml();
+</script>
+</body>
+</html>

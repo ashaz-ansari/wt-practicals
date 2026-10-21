@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Practical 16 - Browser Object Model</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<main>
+<h1>Browser Object Model</h1>
+<table id="browserInfo"></table>
+<button id="confirmButton">Show Confirm</button>
+<button id="openButton">Open Window</button>
+<button id="closeButton">Close Window</button>
+<button id="reloadButton">Reload Page</button>
+<p id="message" class="result"></p>
+<p><a href="index.html">Back to index</a></p>
+</main>
+<script>
+var popup = null;
+var rows = [
+  ["window.innerWidth", window.innerWidth],
+  ["window.innerHeight", window.innerHeight],
+  ["screen.width", screen.width],
+  ["screen.height", screen.height],
+  ["screen.availWidth", screen.availWidth],
+  ["navigator.appName", navigator.appName],
+  ["navigator.language", navigator.language],
+  ["navigator.onLine", navigator.onLine],
+  ["navigator.userAgent", navigator.userAgent],
+  ["location.href", location.href],
+  ["location.protocol", location.protocol],
+  ["history.length", history.length]
+];
+
+var tableHtml = "<tr><th>Property</th><th>Value</th></tr>";
+rows.forEach(function (row) {
+  tableHtml += "<tr><td>" + row[0] + "</td><td>" + row[1] + "</td></tr>";
+});
+document.getElementById("browserInfo").innerHTML = tableHtml;
+
+document.getElementById("confirmButton").addEventListener("click", function () {
+  var answer = confirm("Do you want to see a confirmation message?");
+  document.getElementById("message").textContent = answer ? "You clicked OK." : "You clicked Cancel.";
+});
+
+document.getElementById("openButton").addEventListener("click", function () {
+  popup = window.open("", "practiceWindow", "width=420,height=260");
+  if (popup) {
+    popup.document.write("<h2>Child Window</h2><p>This window was opened with window.open().</p>");
+  } else {
+    document.getElementById("message").textContent = "The browser blocked the pop-up window.";
+  }
+});
+
+document.getElementById("closeButton").addEventListener("click", function () {
+  if (popup && !popup.closed) {
+    popup.close();
+    document.getElementById("message").textContent = "Child window closed.";
+  } else {
+    document.getElementById("message").textContent = "No child window is open.";
+  }
+});
+
+document.getElementById("reloadButton").addEventListener("click", function () {
+  location.reload();
+});
+</script>
+</body>
+</html>

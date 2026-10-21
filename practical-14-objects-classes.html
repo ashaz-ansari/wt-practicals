@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Practical 14 - Objects, Functions, and Classes</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<main>
+<h1>Objects, Functions, and Classes</h1>
+<pre id="output"></pre>
+<p><a href="index.html">Back to index</a></p>
+</main>
+<script>
+var student = {
+  name: "Aarav",
+  course: "Web Technology",
+  marks: 88,
+  display: function () {
+    return this.name + " studies " + this.course + " and scored " + this.marks + ".";
+  }
+};
+
+function Teacher(name, subject) {
+  this.name = name;
+  this.subject = subject;
+}
+
+Teacher.prototype.teach = function () {
+  return this.name + " teaches " + this.subject + ".";
+};
+
+class Person {
+  constructor(name, age) {
+    this.name = name;
+    this.age = age;
+  }
+
+  introduce() {
+    return "I am " + this.name + " and I am " + this.age + " years old.";
+  }
+
+  static category() {
+    return "Human";
+  }
+
+  get profile() {
+    return this.name + ", age " + this.age;
+  }
+}
+
+class Student extends Person {
+  constructor(name, age, course) {
+    super(name, age);
+    this.course = course;
+  }
+
+  introduce() {
+    return super.introduce() + " I study " + this.course + ".";
+  }
+}
+
+var lines = [];
+lines.push("Object literal: " + student.display());
+
+var teacher = new Teacher("Meera", "JavaScript");
+lines.push("Constructor function: " + teacher.teach());
+
+var learner = new Student("Aarav", 20, "Web Technology");
+lines.push("Class method: " + learner.introduce());
+lines.push("Static method: " + Person.category());
+lines.push("Getter: " + learner.profile);
+lines.push("Object.keys(student): " + Object.keys(student).join(", "));
+
+var values = Object.values(student).filter(function (value) {
+  return typeof value !== "function";
+});
+lines.push("Object.values(student): " + values.join(", "));
+
+document.getElementById("output").textContent = lines.join("\n");
+</script>
+</body>
+</html>

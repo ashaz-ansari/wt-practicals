@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Practical 10 - Looping Statements</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<main>
+<h1>Looping Statements</h1>
+<div id="output"></div>
+<p><a href="index.html">Back to index</a></p>
+</main>
+<script>
+function addSection(title, lines) {
+  var section = document.createElement("section");
+  var heading = document.createElement("h2");
+  heading.textContent = title;
+  section.appendChild(heading);
+
+  var pre = document.createElement("pre");
+  pre.textContent = lines.join("\n");
+  section.appendChild(pre);
+
+  document.getElementById("output").appendChild(section);
+}
+
+var forLines = [];
+for (var i = 1; i <= 5; i++) {
+  forLines.push(i + " squared = " + (i * i));
+}
+addSection("for loop", forLines);
+
+var whileLines = [];
+var count = 5;
+while (count >= 1) {
+  whileLines.push("Countdown: " + count);
+  count--;
+}
+addSection("while loop", whileLines);
+
+var doLines = [];
+var number = 1;
+var total = 0;
+do {
+  total += number;
+  doLines.push("Added " + number + ", total = " + total);
+  number++;
+} while (number <= 5);
+addSection("do...while loop", doLines);
+
+var fruits = ["Mango", "Apple", "Banana"];
+var forOfLines = [];
+for (var fruit of fruits) {
+  forOfLines.push("Fruit: " + fruit);
+}
+addSection("for...of loop", forOfLines);
+
+var student = { name: "Aarav", course: "Web Technology", marks: 88 };
+var forInLines = [];
+for (var key in student) {
+  forInLines.push(key + ": " + student[key]);
+}
+addSection("for...in loop", forInLines);
+</script>
+</body>
+</html>

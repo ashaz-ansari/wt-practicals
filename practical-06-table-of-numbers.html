@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Practical 6 - Table of Numbers</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<main>
+<script>
+var number = parseInt(prompt("Enter a number for its multiplication table:"), 10);
+var limit = parseInt(prompt("Enter the limit:"), 10);
+
+document.write("<h1>Table of Numbers</h1>");
+
+if (isNaN(number) || isNaN(limit) || limit < 1) {
+  document.write("<p class=\"result\">Please enter a valid number and a positive limit.</p>");
+} else {
+  document.write("<h2>Table of " + number + "</h2>");
+  document.write("<table><tr><th>Expression</th><th>Result</th></tr>");
+
+  for (var i = 1; i <= limit; i++) {
+    document.write("<tr><td>" + number + " x " + i + "</td><td>" + (number * i) + "</td></tr>");
+  }
+
+  document.write("</table>");
+}
+
+document.write("<p><a href=\"index.html\">Back to index</a></p>");
+</script>
+</main>
+</body>
+</html>

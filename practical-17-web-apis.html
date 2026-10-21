@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Practical 17 - Web APIs</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<main>
+<h1>JavaScript Web APIs</h1>
+
+<h2>Web Storage API</h2>
+<input id="storageInput" type="text" placeholder="Enter a value">
+<button id="saveButton">Save to localStorage</button>
+<button id="loadButton">Load Values</button>
+<button id="removeButton">Remove Values</button>
+<p id="storageOutput" class="result"></p>
+
+<h2>Geolocation API</h2>
+<button id="locationButton">Get My Location</button>
+<p id="locationOutput" class="result"></p>
+
+<h2>Canvas API</h2>
+<canvas id="canvas" width="420" height="180"></canvas>
+<button id="drawButton">Draw on Canvas</button>
+
+<p><a href="index.html">Back to index</a></p>
+</main>
+<script>
+var storageOutput = document.getElementById("storageOutput");
+var savedValue = localStorage.getItem("wtValue");
+storageOutput.textContent = savedValue ? "Saved value: " + savedValue : "No value saved yet.";
+
+document.getElementById("saveButton").addEventListener("click", function () {
+  var value = document.getElementById("storageInput").value;
+  localStorage.setItem("wtValue", value);
+  sessionStorage.setItem("wtSessionValue", value);
+  storageOutput.textContent = "Saved value: " + value;
+});
+
+document.getElementById("loadButton").addEventListener("click", function () {
+  var localValue = localStorage.getItem("wtValue");
+  var sessionValue = sessionStorage.getItem("wtSessionValue");
+  storageOutput.textContent = "localStorage: " + (localValue || "empty") + " | sessionStorage: " + (sessionValue || "empty");
+});
+
+document.getElementById("removeButton").addEventListener("click", function () {
+  localStorage.removeItem("wtValue");
+  sessionStorage.removeItem("wtSessionValue");
+  storageOutput.textContent = "Stored values removed.";
+});
+
+document.getElementById("locationButton").addEventListener("click", function () {
+  var output = document.getElementById("locationOutput");
+
+  if (!navigator.geolocation) {
+    output.textContent = "Geolocation is not supported by this browser.";
+    return;
+  }
+
+  output.textContent = "Getting location...";
+
+  navigator.geolocation.getCurrentPosition(function (position) {
+    output.textContent = "Latitude: " + position.coords.latitude.toFixed(5) + " | Longitude: " + position.coords.longitude.toFixed(5);
+  }, function (error) {
+    output.textContent = "Location error: " + error.message;
+  });
+});
+
+var canvas = document.getElementById("canvas");
+var context = canvas.getContext("2d");
+
+function drawCanvas() {
+  context.clearRect(0, 0, canvas.width, canvas.height);
+
+  context.fillStyle = "#0f6cbd";
+  context.fillRect(20, 20, 120, 80);
+
+  context.fillStyle = "#f59e0b";
+  context.beginPath();
+  context.arc(260, 70, 45, 0, Math.PI * 2);
+  context.fill();
+
+  context.fillStyle = "#1f2937";
+  context.font = "18px Arial";
+  context.fillText("Canvas Web API", 20, 150);
+}
+
+document.getElementById("drawButton").addEventListener("click", drawCanvas);
+drawCanvas();
+</script>
+</body>
+</html>
