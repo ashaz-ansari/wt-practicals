@@ -1,66 +1,39 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Practical 9 - Decision Making</title>
-<link rel="stylesheet" href="style.css">
 </head>
 <body>
-<main>
-<h1>Decision-Making Statements</h1>
-<p>Use the buttons below to run an if...else if program and a switch program.</p>
-<button id="gradeButton">Check Grade with if...else if</button>
-<button id="vowelButton">Check Vowel with switch</button>
-<div id="result" class="result">Choose an option.</div>
-<p><a href="index.html">Back to index</a></p>
-</main>
+<h1>Practical 9: Decision Making</h1>
+<button onclick="checkGrade()">Check Grade</button>
+<button onclick="checkVowel()">Check Vowel</button>
+<p id="output"></p>
 <script>
 function checkGrade() {
-  var marks = parseFloat(prompt("Enter marks from 0 to 100:"));
-  var result = document.getElementById("result");
-
-  if (isNaN(marks) || marks < 0 || marks > 100) {
-    result.textContent = "Please enter a valid mark between 0 and 100.";
-  } else if (marks >= 90) {
-    result.textContent = "Marks: " + marks + " | Grade: A+";
-  } else if (marks >= 80) {
-    result.textContent = "Marks: " + marks + " | Grade: A";
-  } else if (marks >= 70) {
-    result.textContent = "Marks: " + marks + " | Grade: B";
-  } else if (marks >= 60) {
-    result.textContent = "Marks: " + marks + " | Grade: C";
-  } else if (marks >= 40) {
-    result.textContent = "Marks: " + marks + " | Grade: D";
-  } else {
-    result.textContent = "Marks: " + marks + " | Grade: F";
-  }
+  var marks = Number(prompt("Enter marks"));
+  var grade = "F";
+  if (marks >= 90) grade = "A+";
+  else if (marks >= 80) grade = "A";
+  else if (marks >= 70) grade = "B";
+  else if (marks >= 60) grade = "C";
+  else if (marks >= 40) grade = "D";
+  document.getElementById("output").textContent = "Marks: " + marks + ", Grade: " + grade;
 }
-
 function checkVowel() {
-  var character = prompt("Enter a single letter:");
-  var result = document.getElementById("result");
-
-  if (!character || character.trim().length !== 1) {
-    result.textContent = "Please enter exactly one letter.";
-    return;
-  }
-
-  switch (character.toLowerCase()) {
+  var letter = (prompt("Enter a letter") || "").toLowerCase();
+  switch (letter) {
     case "a":
     case "e":
     case "i":
     case "o":
     case "u":
-      result.textContent = character + " is a vowel.";
+      document.getElementById("output").textContent = letter + " is a vowel.";
       break;
     default:
-      result.textContent = character + " is not a vowel.";
+      document.getElementById("output").textContent = letter + " is not a vowel.";
   }
 }
-
-document.getElementById("gradeButton").addEventListener("click", checkGrade);
-document.getElementById("vowelButton").addEventListener("click", checkVowel);
 </script>
 </body>
 </html>

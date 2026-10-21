@@ -1,30 +1,20 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Practical 8 - Welcome Function</title>
-<link rel="stylesheet" href="style.css">
 </head>
 <body>
-<main>
-<h1>Function Definition and Calling</h1>
-<input id="nameInput" type="text" placeholder="Enter your name">
-<button id="callButton">Call Welcome()</button>
-<div id="message" class="result"></div>
-<p><a href="index.html">Back to index</a></p>
-</main>
+<h1>Practical 8: Welcome Function</h1>
+<input id="name" placeholder="Enter your name">
+<button onclick="Welcome()">Call Welcome()</button>
+<p id="message"></p>
 <script>
-function Welcome(name) {
-  var message = name && name.trim() !== "" ? "Welcome, " + name.trim() + "!" : "Welcome, Guest!";
-  document.getElementById("message").textContent = message;
+function Welcome() {
+  var name = document.getElementById("name").value || "Guest";
+  document.getElementById("message").textContent = "Welcome, " + name + "!";
 }
-
-document.getElementById("callButton").addEventListener("click", function () {
-  Welcome(document.getElementById("nameInput").value);
-});
-
-Welcome("Student");
+Welcome();
 </script>
 </body>
 </html>

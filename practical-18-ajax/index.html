@@ -1,56 +1,33 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Practical 18 - AJAX</title>
-<link rel="stylesheet" href="../style.css">
+<title>Practical 18 - AJAX with XMLHttpRequest</title>
 </head>
 <body>
-<main>
-<h1>AJAX with XMLHttpRequest</h1>
-<p>Load student data from a JSON file without reloading the page.</p>
-<button id="loadButton">Load Student Data</button>
-<p id="status" class="result">Click the button to load data.</p>
-<div id="output"></div>
-<p><a href="../index.html">Back to index</a></p>
-</main>
+<h1>Practical 18: AJAX with XMLHttpRequest</h1>
+<button onclick="loadStudents()">Load Students</button>
+<pre id="output"></pre>
 <script>
-document.getElementById("loadButton").addEventListener("click", function () {
+function loadStudents() {
   var xhr = new XMLHttpRequest();
-  var status = document.getElementById("status");
   var output = document.getElementById("output");
-
-  status.textContent = "Loading...";
-  output.innerHTML = "";
-
   xhr.open("GET", "students.json", true);
-
-  xhr.onreadystatechange = function () {
-    if (xhr.readyState === 4) {
-      if (xhr.status === 200) {
-        var students = JSON.parse(xhr.responseText);
-        var table = "<table><tr><th>ID</th><th>Name</th><th>Course</th><th>Marks</th></tr>";
-
-        students.forEach(function (student) {
-          table += "<tr><td>" + student.id + "</td><td>" + student.name + "</td><td>" + student.course + "</td><td>" + student.marks + "</td></tr>";
-        });
-
-        table += "</table>";
-        output.innerHTML = table;
-        status.textContent = "Data loaded successfully using AJAX.";
-      } else {
-        status.textContent = "Request failed with status " + xhr.status + ".";
-      }
+  xhr.onload = function () {
+    if (xhr.status === 200) {
+      output.textContent = JSON.parse(xhr.responseText).map(function (student) {
+        return student.id + " - " + student.name + " - " + student.course + " - " + student.marks;
+      }).join("\n");
+    } else {
+      output.textContent = "Error: " + xhr.status;
     }
   };
-
   xhr.onerror = function () {
-    status.textContent = "Network error while loading the data.";
+    output.textContent = "Network error";
   };
-
+  output.textContent = "Loading...";
   xhr.send();
-});
+}
 </script>
 </body>
 </html>

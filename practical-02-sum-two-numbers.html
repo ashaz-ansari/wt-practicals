@@ -1,28 +1,15 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Practical 2 - Sum of Two Numbers</title>
-<link rel="stylesheet" href="style.css">
 </head>
 <body>
-<main>
+<h1>Practical 2: Sum of Two Numbers</h1>
 <script>
-var first = parseFloat(prompt("Enter the first number:"));
-var second = parseFloat(prompt("Enter the second number:"));
-
-document.write("<h1>Sum of Two Numbers</h1>");
-
-if (isNaN(first) || isNaN(second)) {
-  document.write("<p class=\"result\">Please enter two valid numbers.</p>");
-} else {
-  var sum = first + second;
-  document.write("<p class=\"result\">First number: " + first + "<br>Second number: " + second + "<br>Sum: " + sum + "</p>");
-}
-
-document.write("<p><a href=\"index.html\">Back to index</a></p>");
+var first = Number(prompt("Enter the first number"));
+var second = Number(prompt("Enter the second number"));
+document.write("Sum = " + (first + second));
 </script>
-</main>
 </body>
 </html>

@@ -7,15 +7,11 @@ const port = 8000;
 
 const contentTypes = {
   ".html": "text/html; charset=utf-8",
-  ".css": "text/css; charset=utf-8",
   ".js": "text/javascript; charset=utf-8",
   ".json": "application/json; charset=utf-8",
   ".xml": "application/xml; charset=utf-8",
   ".txt": "text/plain; charset=utf-8",
-  ".sql": "text/plain; charset=utf-8",
-  ".svg": "image/svg+xml",
-  ".png": "image/png",
-  ".jpg": "image/jpeg"
+  ".sql": "text/plain; charset=utf-8"
 };
 
 function escapeXml(value) {

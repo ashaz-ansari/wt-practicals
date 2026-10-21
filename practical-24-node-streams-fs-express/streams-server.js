@@ -6,23 +6,19 @@ const { Readable } = require("stream");
 const port = 3000;
 
 const page = `<!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Node.js Streams and HTTP</title>
-<link rel="stylesheet" href="/style.css">
+<title>Practical 24A - Streams and HTTP</title>
 </head>
 <body>
-<main>
-<h1>Node.js Streaming, Request, Headers, and POST Data</h1>
+<h1>Practical 24A: Streams and HTTP</h1>
 <form action="/submit" method="post">
-<input type="text" name="name" placeholder="Enter your name" required>
-<button type="submit">Send POST Data</button>
+<input name="name" placeholder="Enter your name" required>
+<button>Send POST Data</button>
 </form>
-<p><a href="/stream">Download the streamed file</a></p>
+<p><a href="/stream">Download streamed file</a></p>
 <p><a href="/generated">Stream generated data</a></p>
-</main>
 </body>
 </html>`;
 
@@ -34,12 +30,6 @@ const server = http.createServer((req, res) => {
   if (req.method === "GET" && req.url === "/") {
     res.writeHead(200, { "Content-Type": "text/html; charset=utf-8" });
     res.end(page);
-    return;
-  }
-
-  if (req.method === "GET" && req.url === "/style.css") {
-    res.writeHead(200, { "Content-Type": "text/css; charset=utf-8" });
-    fs.createReadStream(path.join(__dirname, "..", "style.css")).pipe(res);
     return;
   }
 

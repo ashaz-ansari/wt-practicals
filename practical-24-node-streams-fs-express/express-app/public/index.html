@@ -1,106 +1,32 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Express Practical</title>
-<style>
-* {
-  box-sizing: border-box;
-}
-
-body {
-  margin: 0;
-  font-family: Arial, sans-serif;
-  background: #f4f7fb;
-  color: #1f2937;
-}
-
-main {
-  width: min(800px, 92%);
-  margin: 32px auto;
-  background: #ffffff;
-  padding: 24px;
-  border-radius: 12px;
-  box-shadow: 0 10px 30px rgba(15, 23, 42, 0.08);
-}
-
-h1 {
-  color: #0f4c81;
-}
-
-button {
-  background: #0f6cbd;
-  color: #ffffff;
-  border: 0;
-  border-radius: 8px;
-  padding: 9px 16px;
-  margin: 4px 6px 4px 0;
-  cursor: pointer;
-}
-
-input {
-  padding: 9px 11px;
-  border: 1px solid #b9c6d6;
-  border-radius: 8px;
-  margin: 4px 6px 4px 0;
-}
-
-pre {
-  background: #0f172a;
-  color: #d7e3f4;
-  padding: 14px;
-  border-radius: 10px;
-  overflow-x: auto;
-}
-</style>
+<title>Practical 24C - Express</title>
 </head>
 <body>
-<main>
-<h1>Express.js Practical</h1>
-<h2>Users</h2>
-<pre id="users"></pre>
-<input id="nameInput" type="text" placeholder="New user name">
-<button id="addButton">Add User</button>
-<button id="reloadButton">Reload Users</button>
-<p id="status"></p>
-</main>
+<h1>Practical 24C: Express Users</h1>
+<input id="name" placeholder="New user name">
+<button onclick="addUser()">Add User</button>
+<button onclick="loadUsers()">Reload Users</button>
+<pre id="output"></pre>
 <script>
-var usersOutput = document.getElementById("users");
-
 function loadUsers() {
   fetch("/api/users").then(function (response) {
     return response.json();
   }).then(function (users) {
-    usersOutput.textContent = JSON.stringify(users, null, 2);
+    document.getElementById("output").textContent = JSON.stringify(users, null, 2);
   });
 }
-
-document.getElementById("reloadButton").addEventListener("click", loadUsers);
-
-document.getElementById("addButton").addEventListener("click", function () {
-  var name = document.getElementById("nameInput").value.trim();
-
-  if (!name) {
-    document.getElementById("status").textContent = "Enter a name first.";
-    return;
-  }
-
+function addUser() {
   fetch("/api/users", {
     method: "POST",
-    headers: {
-      "Content-Type": "application/json"
-    },
-    body: JSON.stringify({ name: name })
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ name: document.getElementById("name").value })
   }).then(function (response) {
     return response.json();
-  }).then(function (user) {
-    document.getElementById("status").textContent = "Added " + user.name + " with id " + user.id + ".";
-    document.getElementById("nameInput").value = "";
-    loadUsers();
-  });
-});
-
+  }).then(loadUsers);
+}
 loadUsers();
 </script>
 </body>

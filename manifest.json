@@ -1,112 +1,112 @@
 {
   "1": {
     "title": "document.write()",
-    "paths": ["practical-01-document-write.html", "style.css"],
+    "paths": ["practical-01-document-write.html"],
     "hint": "Open the downloaded HTML file in a browser."
   },
   "2": {
     "title": "Sum of two numbers using var",
-    "paths": ["practical-02-sum-two-numbers.html", "style.css"],
+    "paths": ["practical-02-sum-two-numbers.html"],
     "hint": "Open the downloaded HTML file in a browser."
   },
   "3": {
     "title": "Document object properties and methods",
-    "paths": ["practical-03-document-object.html", "style.css"],
+    "paths": ["practical-03-document-object.html"],
     "hint": "Open the downloaded HTML file in a browser."
   },
   "4": {
     "title": "Today's date and current time",
-    "paths": ["practical-04-date-time.html", "style.css"],
+    "paths": ["practical-04-date-time.html"],
     "hint": "Open the downloaded HTML file in a browser."
   },
   "5": {
     "title": "Day of the week from a prompt date",
-    "paths": ["practical-05-day-of-week.html", "style.css"],
+    "paths": ["practical-05-day-of-week.html"],
     "hint": "Open the downloaded HTML file in a browser."
   },
   "6": {
     "title": "Multiplication table using a loop",
-    "paths": ["practical-06-table-of-numbers.html", "style.css"],
+    "paths": ["practical-06-table-of-numbers.html"],
     "hint": "Open the downloaded HTML file in a browser."
   },
   "7": {
     "title": "First 10 Fibonacci numbers",
-    "paths": ["practical-07-fibonacci.html", "style.css"],
+    "paths": ["practical-07-fibonacci.html"],
     "hint": "Open the downloaded HTML file in a browser."
   },
   "8": {
     "title": "Function definition and Welcome()",
-    "paths": ["practical-08-welcome-function.html", "style.css"],
+    "paths": ["practical-08-welcome-function.html"],
     "hint": "Open the downloaded HTML file in a browser."
   },
   "9": {
     "title": "Decision-making statements",
-    "paths": ["practical-09-decision-making.html", "style.css"],
+    "paths": ["practical-09-decision-making.html"],
     "hint": "Open the downloaded HTML file in a browser."
   },
   "10": {
     "title": "Looping statements",
-    "paths": ["practical-10-looping.html", "style.css"],
+    "paths": ["practical-10-looping.html"],
     "hint": "Open the downloaded HTML file in a browser."
   },
   "11": {
     "title": "Arrays",
-    "paths": ["practical-11-arrays.html", "style.css"],
+    "paths": ["practical-11-arrays.html"],
     "hint": "Open the downloaded HTML file in a browser."
   },
   "12": {
     "title": "Functions",
-    "paths": ["practical-12-functions.html", "style.css"],
+    "paths": ["practical-12-functions.html"],
     "hint": "Open the downloaded HTML file in a browser."
   },
   "13": {
     "title": "Strings",
-    "paths": ["practical-13-strings.html", "style.css"],
+    "paths": ["practical-13-strings.html"],
     "hint": "Open the downloaded HTML file in a browser."
   },
   "14": {
     "title": "Objects, functions, and classes",
-    "paths": ["practical-14-objects-classes.html", "style.css"],
+    "paths": ["practical-14-objects-classes.html"],
     "hint": "Open the downloaded HTML file in a browser."
   },
   "15": {
     "title": "HTML DOM",
-    "paths": ["practical-15-dom.html", "style.css"],
+    "paths": ["practical-15-dom.html"],
     "hint": "Open the downloaded HTML file in a browser."
   },
   "16": {
     "title": "Browser Object Model",
-    "paths": ["practical-16-bom.html", "style.css"],
+    "paths": ["practical-16-bom.html"],
     "hint": "Open the downloaded HTML file in a browser."
   },
   "17": {
     "title": "Web APIs",
-    "paths": ["practical-17-web-apis.html", "style.css"],
+    "paths": ["practical-17-web-apis.html"],
     "hint": "Open the downloaded HTML file in a browser."
   },
   "18": {
     "title": "AJAX with XMLHttpRequest",
-    "paths": ["practical-18-ajax", "style.css", "serve.js"],
+    "paths": ["practical-18-ajax", "serve.js"],
     "hint": "Run node serve.js from the download folder, then open http://localhost:8000/practical-18-ajax/."
   },
   "19": {
     "title": "Simple XML program",
-    "paths": ["practical-19-xml", "style.css", "serve.js"],
+    "paths": ["practical-19-xml", "serve.js"],
     "hint": "Run node serve.js from the download folder, then open http://localhost:8000/practical-19-xml/."
   },
   "20": {
     "title": "XML AJAX",
-    "paths": ["practical-20-xml-ajax", "style.css", "serve.js"],
+    "paths": ["practical-20-xml-ajax", "serve.js"],
     "hint": "Run node serve.js from the download folder, then open http://localhost:8000/practical-20-xml-ajax/."
   },
   "21": {
     "title": "XML DOM",
-    "paths": ["practical-21-xml-dom", "style.css", "serve.js"],
+    "paths": ["practical-21-xml-dom", "serve.js"],
     "hint": "Run node serve.js from the download folder, then open http://localhost:8000/practical-21-xml-dom/."
   },
   "22": {
     "title": "XML Web Service",
-    "paths": ["practical-22-xml-web-services", "style.css", "serve.js"],
+    "paths": ["practical-22-xml-web-services", "serve.js"],
     "hint": "Run node serve.js from the download folder, then open http://localhost:8000/practical-22-xml-web-services/."
   },
   "23A": {
@@ -123,8 +123,7 @@
     "title": "Streams, HTTP server, requests, headers, and POST data",
     "paths": [
       "practical-24-node-streams-fs-express/streams-server.js",
-      "practical-24-node-streams-fs-express/sample-data.txt",
-      "style.css"
+      "practical-24-node-streams-fs-express/sample-data.txt"
     ],
     "hint": "Run node practical-24-node-streams-fs-express/streams-server.js, then open http://localhost:3000."
   },

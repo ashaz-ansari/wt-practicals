@@ -1,61 +1,24 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Practical 12 - Functions</title>
-<link rel="stylesheet" href="style.css">
 </head>
 <body>
-<main>
-<h1>JavaScript Functions</h1>
+<h1>Practical 12: Functions</h1>
 <pre id="output"></pre>
-<p><a href="index.html">Back to index</a></p>
-</main>
 <script>
-function add(first, second) {
-  return first + second;
-}
-
-var multiply = function (first, second) {
-  return first * second;
-};
-
-var divide = (first, second) => first / second;
-
-function greet(name = "Guest") {
-  return "Hello, " + name + "!";
-}
-
-function sumAll(...numbers) {
-  return numbers.reduce(function (total, number) {
-    return total + number;
-  }, 0);
-}
-
-function operate(first, second, callback) {
-  return callback(first, second);
-}
-
-function factorial(number) {
-  if (number <= 1) {
-    return 1;
-  }
-  return number * factorial(number - 1);
-}
-
-var lines = [
-  "Function declaration add(12, 8): " + add(12, 8),
-  "Function expression multiply(6, 7): " + multiply(6, 7),
-  "Arrow function divide(20, 4): " + divide(20, 4),
-  "Default parameter greet(): " + greet(),
-  "Default parameter greet('Aarav'): " + greet("Aarav"),
-  "Rest parameter sumAll(5, 10, 15, 20): " + sumAll(5, 10, 15, 20),
-  "Callback operate(10, 5, add): " + operate(10, 5, add),
-  "Recursion factorial(5): " + factorial(5)
-];
-
-document.getElementById("output").textContent = lines.join("\n");
+function add(a, b) { return a + b; }
+var multiply = function (a, b) { return a * b; };
+var divide = (a, b) => a / b;
+function greet(name = "Guest") { return "Hello, " + name + "!"; }
+function factorial(n) { return n <= 1 ? 1 : n * factorial(n - 1); }
+document.getElementById("output").textContent =
+  "add: " + add(12, 8) + "\n" +
+  "multiply: " + multiply(6, 7) + "\n" +
+  "divide: " + divide(20, 4) + "\n" +
+  "greet: " + greet() + "\n" +
+  "factorial: " + factorial(5);
 </script>
 </body>
 </html>

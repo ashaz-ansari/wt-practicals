@@ -1,68 +1,20 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Practical 3 - Document Object</title>
-<link rel="stylesheet" href="style.css">
 </head>
 <body>
-<main>
-<h1>Document Object Properties and Methods</h1>
-<h2>Properties</h2>
-<table id="propertyTable"></table>
-<h2>Methods</h2>
-<button id="methodButton">Run Document Methods</button>
-<div id="methodOutput"></div>
-<p><a href="index.html">Back to index</a></p>
-</main>
+<h1>Practical 3: Document Object</h1>
+<pre id="output"></pre>
 <script>
-var propertyRows = [
-  ["document.title", document.title],
-  ["document.URL", document.URL],
-  ["document.domain", document.domain],
-  ["document.referrer", document.referrer || "No referrer"],
-  ["document.lastModified", document.lastModified],
-  ["document.characterSet", document.characterSet],
-  ["document.readyState", document.readyState]
-];
-
-var tableHtml = "<tr><th>Property</th><th>Value</th></tr>";
-propertyRows.forEach(function (row) {
-  tableHtml += "<tr><td>" + row[0] + "</td><td>" + row[1] + "</td></tr>";
-});
-document.getElementById("propertyTable").innerHTML = tableHtml;
-
-document.getElementById("methodButton").addEventListener("click", function () {
-  var output = document.getElementById("methodOutput");
-  output.innerHTML = "";
-
-  var heading = document.querySelector("h1");
-  var paragraphs = document.getElementsByTagName("p");
-  var newParagraph = document.createElement("p");
-  newParagraph.className = "result";
-  newParagraph.appendChild(document.createTextNode("This paragraph was created with createElement() and appendChild()."));
-  newParagraph.setAttribute("data-created", "true");
-  output.appendChild(newParagraph);
-
-  var list = document.createElement("ul");
-  var items = [
-    "querySelector('h1') found: " + heading.textContent,
-    "getElementById('methodOutput') found the output container.",
-    "getElementsByTagName('p').length: " + paragraphs.length,
-    "querySelectorAll('button').length: " + document.querySelectorAll("button").length,
-    "getAttribute('data-created'): " + newParagraph.getAttribute("data-created"),
-    "document.readyState: " + document.readyState
-  ];
-
-  items.forEach(function (item) {
-    var listItem = document.createElement("li");
-    listItem.textContent = item;
-    list.appendChild(listItem);
-  });
-
-  output.appendChild(list);
-});
+var output = document.getElementById("output");
+output.textContent =
+  "Title: " + document.title + "\n" +
+  "URL: " + document.URL + "\n" +
+  "Domain: " + document.domain + "\n" +
+  "Last modified: " + document.lastModified + "\n" +
+  "Heading: " + document.getElementsByTagName("h1")[0].textContent;
 </script>
 </body>
 </html>

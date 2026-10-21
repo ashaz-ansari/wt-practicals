@@ -27,19 +27,6 @@ const server = http.createServer((req, res) => {
     return;
   }
 
-  if (req.method === "GET" && req.url === "/style.css") {
-    fs.readFile(path.join(__dirname, "..", "style.css"), (error, data) => {
-      if (error) {
-        res.writeHead(500, { "Content-Type": "text/plain; charset=utf-8" });
-        res.end("Unable to load the stylesheet");
-        return;
-      }
-      res.writeHead(200, { "Content-Type": "text/css; charset=utf-8" });
-      res.end(data);
-    });
-    return;
-  }
-
   if (req.method === "POST" && req.url === "/soap") {
     let body = "";
 

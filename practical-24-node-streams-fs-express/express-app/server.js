@@ -3,6 +3,10 @@ const path = require("path");
 
 const app = express();
 const port = 3000;
+const users = [
+  { id: 1, name: "Aarav" },
+  { id: 2, name: "Meera" }
+];
 
 app.use((req, res, next) => {
   console.log(req.method, req.url);
@@ -10,20 +14,10 @@ app.use((req, res, next) => {
 });
 
 app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, "public"), { index: false }));
-
-const users = [
-  { id: 1, name: "Aarav" },
-  { id: 2, name: "Meera" }
-];
 
 app.get("/", (req, res) => {
   res.sendFile(path.join(__dirname, "public", "index.html"));
-});
-
-app.get("/about", (req, res) => {
-  res.send("About page from an Express route.");
 });
 
 app.get("/api/users", (req, res) => {
@@ -54,10 +48,6 @@ app.post("/api/users", (req, res) => {
 
   users.push(user);
   res.status(201).json(user);
-});
-
-app.use((req, res) => {
-  res.status(404).json({ error: "Route not found" });
 });
 
 app.listen(port, () => {

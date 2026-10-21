@@ -1,42 +1,16 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Practical 5 - Day of the Week</title>
-<link rel="stylesheet" href="style.css">
 </head>
 <body>
-<main>
+<h1>Practical 5: Day of the Week</h1>
+<p id="output"></p>
 <script>
-var input = prompt("Enter a date (YYYY-MM-DD):");
-var dayNames = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
-
-document.write("<h1>Day of the Week</h1>");
-
-if (input === null || input.trim() === "") {
-  document.write("<p class=\"result\">No date was entered.</p>");
-} else {
-  var parts = input.trim().split("-");
-
-  if (parts.length !== 3) {
-    document.write("<p class=\"result\">Please use the format YYYY-MM-DD.</p>");
-  } else {
-    var year = parseInt(parts[0], 10);
-    var month = parseInt(parts[1], 10);
-    var day = parseInt(parts[2], 10);
-    var date = new Date(year, month - 1, day);
-
-    if (date.getFullYear() !== year || date.getMonth() !== month - 1 || date.getDate() !== day) {
-      document.write("<p class=\"result\">The entered date is not valid.</p>");
-    } else {
-      document.write("<p class=\"result\">" + day + "/" + month + "/" + year + " falls on " + dayNames[date.getDay()] + ".</p>");
-    }
-  }
-}
-
-document.write("<p><a href=\"index.html\">Back to index</a></p>");
+var input = prompt("Enter a date (YYYY-MM-DD)");
+var date = new Date(input);
+document.getElementById("output").textContent = input ? "Day: " + date.toLocaleDateString("en-US", { weekday: "long" }) : "No date entered.";
 </script>
-</main>
 </body>
 </html>

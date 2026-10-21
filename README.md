@@ -1,6 +1,6 @@
 # Web Technology Practicals
 
-All practical codes are organized by practical number. The code files contain no comments.
+All practical codes are organized by practical number. The code files contain no comments and no CSS.
 
 ## Download practicals with the `wt` command
 
