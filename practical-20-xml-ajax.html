@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Practical 20 - XML AJAX</title>
+</head>
+<body>
+<h1>Practical 20: XML AJAX</h1>
+<input id="search" placeholder="Search by name" oninput="showEmployees()">
+<pre id="output"></pre>
+<script>
+var xmlData = "<employees><employee id='1'><name>Aarav</name><department>IT</department><salary>50000</salary></employee><employee id='2'><name>Meera</name><department>HR</department><salary>45000</salary></employee><employee id='3'><name>Kabir</name><department>IT</department><salary>60000</salary></employee></employees>";
+var employees = [];
+function loadEmployees() {
+  var xhr = new XMLHttpRequest();
+  var url = URL.createObjectURL(new Blob([xmlData], { type: "application/xml" }));
+  xhr.open("GET", url, true);
+  xhr.onload = function () {
+    var xml = new DOMParser().parseFromString(xhr.responseText, "application/xml");
+    var nodes = xml.getElementsByTagName("employee");
+    for (var i = 0; i < nodes.length; i++) {
+      employees.push({
+        id: nodes[i].getAttribute("id"),
+        name: nodes[i].getElementsByTagName("name")[0].textContent,
+        department: nodes[i].getElementsByTagName("department")[0].textContent,
+        salary: nodes[i].getElementsByTagName("salary")[0].textContent
+      });
+    }
+    showEmployees();
+  };
+  xhr.send();
+}
+function showEmployees() {
+  var filter = document.getElementById("search").value.toLowerCase();
+  document.getElementById("output").textContent = employees.filter(function (employee) {
+    return employee.name.toLowerCase().includes(filter);
+  }).map(function (employee) {
+    return employee.id + " - " + employee.name + " - " + employee.department + " - " + employee.salary;
+  }).join("\n");
+}
+loadEmployees();
+</script>
+</body>
+</html>

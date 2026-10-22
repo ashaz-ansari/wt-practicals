@@ -1,10 +1,10 @@
 # Web Technology Practicals
 
-All practical codes are organized by practical number. The code files contain no comments and no CSS.
+All browser practicals 1-22 are single HTML files. The code contains no comments and no CSS. Practicals 23-25 remain runnable Node.js and database programs.
 
 ## Download practicals with the `wt` command
 
-The project includes a command-line downloader. It copies the selected practical and all required supporting files into the current folder, or into a folder chosen with `--dir`. The CLI requires Node.js 18 or newer.
+The project includes a command-line downloader. It copies the selected practical into the current folder, or into a folder chosen with `--dir`. The CLI requires Node.js 18 or newer.
 
 Local usage:
 
@@ -59,35 +59,7 @@ The repository must be public. If it is private, npm needs GitHub authentication
 
 ## Browser practicals
 
-Open `index.html` directly, or start the included static server:
-
-```
-node serve.js
-```
-
-Then open:
-
-```
-http://localhost:8000
-```
-
-The local server is recommended for the AJAX and XML practicals because browsers block local file requests made with `file://`.
-
-## Practical 22: XML web service
-
-The main server includes the SOAP endpoint, so this practical works at:
-
-```
-http://localhost:8000/practical-22-xml-web-services/
-```
-
-To run the standalone XML web service instead:
-
-```
-node practical-22-xml-web-services/service.js
-```
-
-Open `http://localhost:4000`.
+Open `index.html` directly, or open any downloaded browser practical HTML file. Practicals 18-22 store their JSON and XML data in `jsonData` or `xmlData` inside the same HTML file, so no server or separate data file is needed.
 
 ## Practical 23: Node environment and async events
 

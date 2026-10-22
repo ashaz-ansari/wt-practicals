@@ -11,7 +11,8 @@
 <button onclick="removeBook()">Remove Last Book</button>
 <pre id="output"></pre>
 <script>
-var xml = new DOMParser().parseFromString("<library><book id='1'><title>Web Technology</title></book><book id='2'><title>JavaScript</title></book></library>", "application/xml");
+var xmlData = "<library><book id='1'><title>Web Technology</title></book><book id='2'><title>JavaScript</title></book></library>";
+var xml = new DOMParser().parseFromString(xmlData, "application/xml");
 function showXml() {
   document.getElementById("output").textContent = new XMLSerializer().serializeToString(xml);
 }

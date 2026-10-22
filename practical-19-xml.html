@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Practical 19 - Simple XML</title>
+</head>
+<body>
+<h1>Practical 19: Simple XML</h1>
+<script>
+var xmlData = "<books><book id='1'><title>Web Technology</title><author>Aarav</author><price>450</price></book><book id='2'><title>JavaScript</title><author>Meera</author><price>520</price></book><book id='3'><title>HTML and CSS</title><author>Kabir</author><price>380</price></book></books>";
+var books = new DOMParser().parseFromString(xmlData, "application/xml").getElementsByTagName("book");
+for (var i = 0; i < books.length; i++) {
+  document.write(
+    books[i].getAttribute("id") + " - " +
+    books[i].getElementsByTagName("title")[0].textContent + " - " +
+    books[i].getElementsByTagName("author")[0].textContent + " - " +
+    books[i].getElementsByTagName("price")[0].textContent + "<br>"
+  );
+}
+</script>
+</body>
+</html>

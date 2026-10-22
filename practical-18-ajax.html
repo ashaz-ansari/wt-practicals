@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Practical 18 - AJAX with XMLHttpRequest</title>
+</head>
+<body>
+<h1>Practical 18: AJAX with XMLHttpRequest</h1>
+<button onclick="loadStudents()">Load Students</button>
+<pre id="output"></pre>
+<script>
+var jsonData = '[{"id":1,"name":"Aarav","course":"Web Technology","marks":88},{"id":2,"name":"Meera","course":"Web Technology","marks":92},{"id":3,"name":"Kabir","course":"Web Technology","marks":75}]';
+function loadStudents() {
+  var output = document.getElementById("output");
+  var xhr = new XMLHttpRequest();
+  var url = URL.createObjectURL(new Blob([jsonData], { type: "application/json" }));
+  xhr.open("GET", url, true);
+  xhr.onload = function () {
+    output.textContent = JSON.parse(xhr.responseText).map(function (student) {
+      return student.id + " - " + student.name + " - " + student.course + " - " + student.marks;
+    }).join("\n");
+  };
+  output.textContent = "Loading...";
+  xhr.send();
+}
+</script>
+</body>
+</html>

@@ -86,28 +86,28 @@
   },
   "18": {
     "title": "AJAX with XMLHttpRequest",
-    "paths": ["practical-18-ajax", "serve.js"],
-    "hint": "Run node serve.js from the download folder, then open http://localhost:8000/practical-18-ajax/."
+    "paths": ["practical-18-ajax.html"],
+    "hint": "Open the downloaded HTML file in a browser."
   },
   "19": {
     "title": "Simple XML program",
-    "paths": ["practical-19-xml", "serve.js"],
-    "hint": "Run node serve.js from the download folder, then open http://localhost:8000/practical-19-xml/."
+    "paths": ["practical-19-xml.html"],
+    "hint": "Open the downloaded HTML file in a browser."
   },
   "20": {
     "title": "XML AJAX",
-    "paths": ["practical-20-xml-ajax", "serve.js"],
-    "hint": "Run node serve.js from the download folder, then open http://localhost:8000/practical-20-xml-ajax/."
+    "paths": ["practical-20-xml-ajax.html"],
+    "hint": "Open the downloaded HTML file in a browser."
   },
   "21": {
     "title": "XML DOM",
-    "paths": ["practical-21-xml-dom", "serve.js"],
-    "hint": "Run node serve.js from the download folder, then open http://localhost:8000/practical-21-xml-dom/."
+    "paths": ["practical-21-xml-dom.html"],
+    "hint": "Open the downloaded HTML file in a browser."
   },
   "22": {
     "title": "XML Web Service",
-    "paths": ["practical-22-xml-web-services", "serve.js"],
-    "hint": "Run node serve.js from the download folder, then open http://localhost:8000/practical-22-xml-web-services/."
+    "paths": ["practical-22-xml-web-services.html"],
+    "hint": "Open the downloaded HTML file in a browser."
   },
   "23A": {
     "title": "Node environment, V8, and process object",
